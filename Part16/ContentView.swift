@@ -7,13 +7,17 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
+    @AppStorage("menuName") var menuName = ""
+    @AppStorage("memo") var memo = ""
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            TextField("メニュー名", text: $menuName)
+                .textFieldStyle(.roundedBorder)
+            TextEditor(text: $memo)
+                .border(.gray)
         }
         .padding()
     }
